@@ -2,7 +2,7 @@ class Bank_Account
   attr_reader :balance, :transactions, :index, :credit, :debit
 
   def initialize
-    @balance = 0.0
+    @balance = 10.0
     @transactions = {}
     @index = 1
     @credit = 0
@@ -11,19 +11,27 @@ class Bank_Account
 
   def creditizer(number)
     @balance += number
-    credit_transactions
+    credit_transactions(number, "     ")
   end
 
-  
+  def debitizer(number)
+    @balance -= number
+    debit_transactions("     ", number)
+  end
+
+
 
 private
 
-  def credit_transactions
-    @transactions[@index] = ["Date", @credit, @debit, @balance]
+  def credit_transactions(credit, debit)
+    @transactions[@index] = ["Date", credit, debit, @balance]
     @index += 1
   end
 
-
+  def debit_transactions(credit, debit)
+    @transactions[@index] = ["Date", credit, debit, @balance]
+    @index += 1
+  end
 
 
 

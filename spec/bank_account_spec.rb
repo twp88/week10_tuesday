@@ -11,6 +11,7 @@ describe Bank_Account do
         expect(bank_account.index).to eq 1
         expect(bank_account.credit).to eq 0
         expect(bank_account.debit).to eq 0
+        expect(bank_account.time).to eq 0
       end
     end
 
@@ -32,6 +33,17 @@ describe Bank_Account do
         expect(bank_account.index).to eq 2
       end
     end
+
+    context "calls time_me function" do
+      it "returns the time" do
+        time = Time.new
+        day = time.inspect
+        bank_account.time_me
+        expect(bank_account.time).to eq day
+      end
+    end
+
+
 
   end
 end

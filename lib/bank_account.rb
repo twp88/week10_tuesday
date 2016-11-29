@@ -27,11 +27,15 @@ class Bank_Account
     @time = @time.inspect
   end
 
+  def print_balance
+    @transactions.each {|k, v| puts k, v}
+  end
+
 
 private
 
   def credit_transactions(credit, debit)
-    @transactions[@index] = [@time, credit, debit, @balance]
+    @transactions[@index] = ['||', @time, '||', credit, '||', debit, '||', @balance]
     @index += 1
   end
 

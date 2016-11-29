@@ -43,6 +43,13 @@ describe Bank_Account do
       end
     end
 
+    context "calls the print bank balance function" do
+      it "returns the contents of the transactions hash" do
+        bank_account.print_balance
+        
+      end
+    end
+
 
 
   end

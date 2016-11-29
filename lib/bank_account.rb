@@ -1,13 +1,30 @@
 class Bank_Account
-  attr_reader :what, :hi
+  attr_reader :balance, :transactions, :index, :credit, :debit
 
   def initialize
-    @what = 10
-    @hi = "hi"
+    @balance = 0.0
+    @transactions = {}
+    @index = 1
+    @credit = 0
+    @debit = 0
   end
 
-  def add(number)
-    @what += number
+  def creditizer(number)
+    @balance += number
+    credit_transactions
   end
+
+  
+
+private
+
+  def credit_transactions
+    @transactions[@index] = ["Date", @credit, @debit, @balance]
+    @index += 1
+  end
+
+
+
+
 
 end

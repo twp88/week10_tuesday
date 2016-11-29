@@ -5,20 +5,26 @@ describe Bank_Account do
 
   describe "Bank Account" do
     context "when initialised" do
-      it "initialises with two variables" do
-        expect(bank_account.what).to eq 10
-        expect(bank_account.hi).to eq "hi"
+      it "initialises with key variables" do
+        expect(bank_account.balance).to eq 0.0
+        expect(bank_account.transactions).to be {}
+        expect(bank_account.index).to eq 1
+        expect(bank_account.credit).to eq 0
+        expect(bank_account.debit).to eq 0
       end
     end
 
 
-    context "when add is called" do
-      it "adds ten to what" do
-        bank_account.add(10)
-        expect(bank_account.what).to eq 20
+    context "when credit is called" do
+      it "credits ten to balance" do
+        bank_account.creditizer(10.0)
+        expect(bank_account.balance).to eq 10.0
+        expect(bank_account.transactions).not_to be nil
+        expect(bank_account.index).to eq 2
+
       end
     end
+
+
   end
-
-
 end
